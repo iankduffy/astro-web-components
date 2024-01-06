@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+// import Card from '../components/Card.astro';
+import { getCollection, getEntry } from 'astro:content';
+const allBlogPosts = await getCollection('web-components');
+console.log(allBlogPosts);
+
+---
+
+<Layout title="Welcome to Astro.">
+	<main class="container">
+		<h1>Custom Web Components</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+	</main>
+</Layout>
+

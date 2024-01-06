@@ -1,0 +1,34 @@
+---
+
+---
+
+<details-accordian>
+    <template>
+        <slot></slot>
+    </template>
+
+    <details>
+        <summary>Details 1</summary>
+        <div>Here is some more content</div>
+    </details>
+
+    <details>
+        <summary>Details 2</summary>
+        <div>Here is some more content</div>
+    </details>
+
+    <details>
+        <summary>Details 3</summary>
+        <div>Here is some more content</div>
+    </details>
+
+    <details>
+        <summary>Details 4</summary>
+        <div>Here is some more content</div>
+    </details>
+</details-accordian>
+
+<script>
+    import {DetailsAccordian} from 'web-components';
+    DetailsAccordian.register('details-accordian');
+</script>
