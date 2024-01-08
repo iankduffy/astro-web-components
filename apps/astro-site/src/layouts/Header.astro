@@ -7,9 +7,10 @@
         <img src="/images/logo.svg" alt="ID" width="100" height="100">
     </a>
     <div>
-        <search>
-            Search Here
-        </search>
+        <search-button-with-dialog>
+            <button class="search-button">Search Here</button>
+            <dialog><div>Search Dialog Here</div></dialog>
+        </search-button-with-dialog>
         <a>Github</a>
     </div>
 </header>
@@ -27,55 +28,16 @@
         width: 60px;
     }
 
-    search {
+    .search-button {
         display: inline-block;
         width: 100%;
         max-width: 400px;
         margin-right: 1rem;
     }
-
-    search input {
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    search input:focus {
-        outline: none;
-        border-color: #aaa;
-    }
-
-    search input::placeholder {
-        color: #ccc;
-    }
-
-    search button {
-        display: none;
-    }
-
-    @media (min-width: 768px) {
-        search {
-            width: auto;
-        }
-
-        search input {
-            width: auto;
-        }
-
-        search button {
-            display: inline-block;
-            margin-left: 1rem;
-            padding: 0.5rem 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fff;
-            color: #333;
-            cursor: pointer;
-        }
-
-        search button:hover {
-            border-color: #aaa;
-        }
-    }
+    
 </style>
+
+<script>
+    import {SearchButtonWithDialog} from "web-components";
+    SearchButtonWithDialog.register('search-button-with-dialog');
+</script>
