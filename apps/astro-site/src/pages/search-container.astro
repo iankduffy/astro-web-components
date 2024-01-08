@@ -1,0 +1,17 @@
+---
+import SearchFilters from '../components/web-components/SearchFilters.astro';
+import Layout from "../layouts/Layout.astro";
+
+---
+
+<Layout title="Search container Test">
+    <SearchFilters></SearchFilters>
+    <search-container class="container">
+
+    </search-container>
+</Layout>
+
+<script>
+    import {SearchContainer} from 'web-components'
+    SearchContainer.register('search-container');
+</script>

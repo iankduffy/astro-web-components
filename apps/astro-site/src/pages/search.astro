@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro"
+
+---
+<Layout title="search">
+    <section>
+
+    </section>
+</Layout>
+
+<script>
+    import {SearchResult} from 'web-components'
+    SearchResult.register('search-result')
+    const searchResults = [{
+        name: 'Hotel 1', 
+        image: 'https://via.placeholder.com/150',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
+    },
+    {
+        name: 'Hotel 2', 
+        image: 'https://via.placeholder.com/150',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
+    },
+    {
+        name: 'Hotel 3', 
+        image: 'https://via.placeholder.com/150',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
+    },
+    {
+        name: 'Hotel 4', 
+        image: 'https://via.placeholder.com/150',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
+    },
+    {
+        name: 'Hotel 5', 
+        image: 'https://via.placeholder.com/150',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
+    }]
+
+    const searchResultsContainer: HTMLElement | null = document.querySelector('section')
+
+    const template = (hotel) => {
+        return `
+        <search-result>
+            <h2 slot='name'>${hotel.name}</h2>
+            <img slot='image' src="${hotel.image}" alt="${hotel.name}">
+            <p slot='description'>${hotel.description}</p>
+        </search-result>
+
+        `
+    }
+    const results = searchResults.map(hotel => template(hotel)).join('') 
+
+    console.log(results)
+
+    if (searchResultsContainer) {
+        searchResultsContainer.innerHTML = results ?? ''
+    }
+
+</script>
