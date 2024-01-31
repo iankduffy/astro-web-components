@@ -42,11 +42,10 @@ import Layout from "../layouts/Layout.astro"
     const template = (hotel) => {
         return `
         <search-result>
-            <h2 slot='name'>${hotel.name}</h2>
+            <span slot='name'>${hotel.name}</span>
             <img slot='image' src="${hotel.image}" alt="${hotel.name}">
             <p slot='description'>${hotel.description}</p>
         </search-result>
-
         `
     }
     const results = searchResults.map(hotel => template(hotel)).join('') 

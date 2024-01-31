@@ -1,17 +1,31 @@
 ---
-
+import SearchDialog from '../features/search/SearchDialog.astro'
 ---
 
 <header class="container">
-    <a href="/" aria-label="home page" class="logo">
-        <img src="/images/logo.svg" alt="ID" width="100" height="100">
-    </a>
-    <div>
+    <div class="flex align-center">
+        <a href="/" aria-label="home page" class="logo">
+            <img src="/images/logo.svg" alt="ID" width="100" height="100">
+        </a>
+        <nav >
+            <ul class="nav gap-4">
+                <li>
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="/">About</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="flex gap-8 align-center">
         <search-button-with-dialog>
-            <button class="search-button">Search Here</button>
-            <dialog><div>Search Dialog Here</div></dialog>
+            <div>
+                <button class="search-button">Search Here</button>
+                <SearchDialog/>
+            </div>
         </search-button-with-dialog>
-        <a>Github</a>
+        <a class="github-link" href="https://github.com/iankduffy" target="_blank"></a>
     </div>
 </header>
 
@@ -33,8 +47,35 @@
         width: 100%;
         max-width: 400px;
         margin-right: 1rem;
+        background-color: var(--darker); 
+        border: none;
+        color: var(--color-text);
+        padding: 15px 20px;
+        border-radius: 50px;
+        cursor: pointer;
     }
     
+    .nav {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: var(--color-text);
+        padding: 20px;
+    }
+
+    .github-link {
+        background-color: var(--darker); 
+        color: var(--color-text);
+        border-radius: 100%;
+        text-decoration: none;
+        aspect-ratio: 1/1;
+        display: grid;
+        place-items: center;
+    }
 </style>
 
 <script>

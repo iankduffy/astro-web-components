@@ -8,3 +8,33 @@
 img {
     width: 100%;
 }
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.gap-4 {
+    gap: 8px;
+}
+
+.gap-8 {
+    gap: 16px;
+}
+
+.text-white {
+    color: white;
+}
+
+.btn {
+    background-color: var(--darker);
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+dialog {
+    padding: 0;
+}

@@ -1,0 +1,48 @@
+---
+
+---
+
+<dialog>
+    <div>
+    <search>
+        <input type="search" placeholder="Search" class='search-input' />
+        <section>
+            <ul class='search-results'>
+
+            </ul>
+        </section>
+    </search>
+    </div>  
+</dialog>
+
+<style>
+    dialog {
+        /* all: unset; */
+        padding: 0;
+        width: 90vw;
+        max-width: 600px;
+        background: var(--primary-color);
+        min-height: 300px;
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .search-input {
+        width: 100%; 
+        background: var(--darker);
+        border: none;
+        padding: 1rem;
+        color: white;
+        font-size: 1.1rem;
+
+        &:focus {
+            outline: none;
+        }
+    }
+</style>
+
+<script>
+    import {SearchDialogResult} from 'web-components'
+    SearchDialogResult.register()
+</script>

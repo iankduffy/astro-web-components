@@ -1,36 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// import Card from '../components/Card.astro';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 const allBlogPosts = await getCollection('web-components');
 console.log(allBlogPosts);
+import Card from '../components/Card.astro';
 
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="container">
-		<h1>Custom Web Components</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+	<main class="container ">
+		<section class="text-center flex flex-col gap-6 py-16">
+			<h1 class="text-6xl font-bold">Custom Web Components</h1>
+			<p class="text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+			<a href="/about-web-components" class="btn self-center">About Web Components</a>
+		</section>
+		<section class="grid md:grid-cols-2 gap-6">
+			{allBlogPosts.map((post) => {
+				return (
+					<Card
+						title={post.data.title}
+						body={post?.description}
+						href={`/web-components/${post.slug}`}
+						image={post.image}
+					/>
+				);
+			})}
+		</section>
 	</main>
-	<search-filters name="size">
-		<label>
-			<input type="checkbox" value="small" id="small" name="size" />Small
-		</label>
-		<label>
-		<input type="checkbox" value="large" id="large" name="large" />Large
-		</label>
-	</search-filters>
-	<search-filters name="type">
-		<label>
-			<input type="checkbox" value="red" id="small" name="size" />Red
-		</label>
-		<label>
-		<input type="checkbox" value="blue" id="large" name="large" />Blue
-		</label>
-	</search-filters>
 </Layout>
-
-<script>
-	import { SearchFilters } from 'web-components'
-	SearchFilters.register('search-filters')
-</script>
